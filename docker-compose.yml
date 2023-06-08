@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  portainer:
+    container_name: portainer
+    image: portainer/portainer-ce:latest
+    restart: unless-stopped
+    networks:
+      - ptnr
+    ports:
+      - 9443:9443
+    volumes:
+      - /data/volumes/ptnrdata:/data
+      - /var/run/docker.sock:/var/run/docker.sock
+networks:
+  ptnr:
